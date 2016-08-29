@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="store" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Gem Store</title>
+
+    <!-- Bootstrap Style -->
+    <link href="Content/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+	<div ng-controller="StoreController as store">
+		<div ng-repeat="product in store.products">
+			<div ng-hide="product.soldOut">
+				<h1> {{product.name}} </h1>
+				<h2> ${{product.price}} </h2>
+				<p> {{product.description}} </p>
+				<button ng-show="product.canPurchase"> Add to Cart </button>
+			</div>
+		</div>
+	</div>
+	
+    <!-- jQuery -->
+    <script src="Scripts/jquery-1.12.4.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="Scripts/bootstrap.min.js"></script>
+	<!-- Angular JS -->
+	<script src="Scripts/angular.min.js"></script>
+	<!-- Page Specific JS -->
+	<script src="Scripts/app.js"></script>
+  </body>
+</html>
