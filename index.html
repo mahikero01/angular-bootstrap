@@ -20,18 +20,59 @@
   </head>
   <body>
     <div class="container">
-		<form>
+		<form ng-app="app1">
+			<!--
+			The ng-app directive defines an AngularJS application.
+			The ng-model directive binds the value of HTML controls (input, select, textarea) to application data.
+			The ng-bind directive binds application data to the HTML view.
+			-->
+			
 			<div class="row">
-				<div ng-app="" class="form-group col-sm-6">
+				<div  ng-controller="ctrl1" class="form-group col-sm-6">
 					<label for="sampleInput1">Input 1</label>
 					<input ng-model="sampleInput1" type="text" class="form-control" id="sampleInput1" placeholder="Input 1">
-					<p ng-bind="sampleInput1"></p>
+					<p>{{sampleInput1}}</p>
+					<p>{{firstName}}</p>
 				</div>
 				<div class="form-group col-sm-6">
 					<label for="sampleInput2">Input 2</label>
 					<input type="text" class="form-control" id="sampleInput2" placeholder="Input 2">
 				</div>
 			</div>
+			
+			<!--
+			<div ng-app="myApp" ng-controller="myCtrl">
+
+First Name: <input type="text" ng-model="firstName"><br>
+Last Name: <input type="text" ng-model="lastName"><br>
+<br>
+Full Name: {{firstName + " " + lastName}}
+
+</div>
+			
+			<!--
+			The ng-init directive initializes AngularJS application variables.
+			-->
+			<div ng-controller="ctrl2"  class="row">
+				<div class="col-sm-6">
+					<p>The name is {{firstName}}</p>
+				</div>
+			</div>
+			
+			<!--
+			AngularJS expressions are written inside double braces: {{ expression }}.
+			AngularJS will "output" data exactly where the expression is written:
+			-->
+			<div class="row">
+				<div class="col-sm-6">
+					<p>This is addition: 5 + 5 = {{ 5+5 }}</p>
+				</div>
+				<div class="col-sm-6">
+					<p>Bind expression {{sampleInput1}}</p>
+				</div>
+			</div>
+			
+			
 		</form>
 	</div>
 	
@@ -41,5 +82,21 @@
     <script src="Scripts/jquery-1.12.4.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="Scripts/bootstrap.min.js"></script>
+	
+	<script>
+
+	var app = angular.module("app1", []); 
+	app.controller("ctrl1", function($scope) {
+    $scope.sampleInput1 = "";
+	$scope.firstName = "john";
+    //$scope.lastName = "Doe";
+	});
+	app.controller("ctrl2", function($scope) {
+    $scope.firstName = "rico";
+    //$scope.lastName = "Doe";
+	});
+	//var app2 = angular.module("app2", []); 
+
+	</script>
   </body>
 </html>
