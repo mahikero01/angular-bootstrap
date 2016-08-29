@@ -12,6 +12,16 @@
 			description: '. . . .',
 			canPurchase: true,
 			soldOut: false,
+			images: [
+				{
+					full: 'dodecahedron-01-full.jpg',
+					thumb: 'dodecahedron-01-thumb.jpg'
+				},
+				{
+					full: 'dodecahedron-02-full.jpg',
+					thumb: 'dodecahedron-02-thumb.jpg'
+				}
+			],
 		},
 		{
 			name: 'Pentagonal Gem',
