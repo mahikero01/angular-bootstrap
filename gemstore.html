@@ -26,16 +26,9 @@
 	<ul class="list-group">
 		<li ng-repeat="product in store.products" class="list-group-item">
 			<h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
-			<div ng-controller="GalleryController as gallery" ng-show="product.images.length" >
-				<div class="img-wrap">
-					<img ng-src="{{product.images[gallery.current].full}}">
-				</div>
-				<ul class="img-thumbnails clearfix">
-					<li ng-repeat="image in product.images" class="small-image pull-left thumbnail">
-						<img ng-src="{{image}}" />
-					</li>
-				</ul>
-			</div>
+			
+			<product-gallery></product-gallery>
+			
 			<product-tabs></product-tabs>
 			
 		</li>
